@@ -1,0 +1,69 @@
+<div class="row">
+<h1 class="text-center">Bootstrap Tree View</h1>
+
+
+<div class="col-md-6 col-xs-12">
+
+<div id="treeview" class="treeview"></div>
+
+<div class="panel panel-info">
+<h4>Ex: Bootstrap Tree View
+<small>
+<a href="https://github.com/jonmiles/bootstrap-treeview" target="_blank" class="reference">
+Reference Book  <span class="glyphicon glyphicon-bookmark"></span>
+</a>
+</small></h4>
+</div>
+
+</div>
+
+<div class="col-md-6 col-xs-12">
+<div id="checkable-output"></div>
+<div id="treeview-checkable" class="treeview"></div>
+
+<div class="panel panel-info">
+<h4>Ex: Bootstrap Tree View
+<small>
+<a href="https://github.com/jonmiles/bootstrap-treeview" target="_blank" class="reference">
+Reference Book  <span class="glyphicon glyphicon-bookmark"></span>
+</a>
+</small></h4>
+</div>
+
+</div>
+<div class="col-md-6 col-xs-12">
+
+      <input type="button"  class="btn btn-warning" value="TREE MODEL 1" data-ng-click="roleList = roleList1" /> 
+	  <input type="button"  class="btn btn-danger" value="TREE MODEL 2" data-ng-click="roleList = roleList2" />
+
+
+    <div class="nodeoutput">
+      <span><b>Selected Node</b> : {{currentNode.roleName}}</span>
+    </div>
+	
+    <div
+      data-angular-treeview="true"
+      data-tree-model="roleList"
+      data-node-id="roleId"
+      data-node-label="roleName"
+	  expand-level      = "2"
+      data-node-children="children" >
+    </div>
+<div class="panel panel-info">
+<h4>Ex: Angular Treeview
+<small>
+<a href="https://github.com/eu81273/angular.treeview" target="_blank" class="reference">
+Reference Book  <span class="glyphicon glyphicon-bookmark"></span>
+</a>
+</small></h4>
+</div>	
+
+</div>
+
+<div class="col-md-6 col-xs-12">
+<a href="http://angularscript.com/collection/tree-view/" target="_blank" class="reference">
+Get more Angular Treeview Collections here  <span class="glyphicon glyphicon-bookmark"></span>
+</a>
+</div>
+
+</div>

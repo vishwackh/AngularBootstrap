@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Accordion", 
+        "url": "accordion", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },
+    {
+        "name": "Alert", 
+        "url": "alert", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },
+    {
+        "name": "Buttons", 
+        "url": "buttons", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },
+    {
+        "name": "Carousel", 
+        "url": "carousel", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },
+    {
+        "name": "Collapse", 
+        "url": "collapse", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },
+    {
+        "name": "snippets", 
+        "url": "snippets", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },	
+    {
+        "name": "Modal", 
+        "url": "modal", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    }
+]	
