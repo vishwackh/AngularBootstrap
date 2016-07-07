@@ -1,0 +1,107 @@
+<div class="row"> 
+ <h1 class="text-center">AngularJS Form With Validation</h1>
+<div class="col-lg-offset-4 col-lg-4 card">
+ <form name="userForm"  novalidate>
+ <!-- NAME -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && (userForm.name.$dirty || submitted)}">
+		 <label>Name</label>
+		 <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Your Name" ng-required="true">
+		 <p ng-show="userForm.name.$error.required && (userForm.name.$dirty || submitted)" class="help-block">You name is required.</p>
+		 </div>
+ 
+ <!-- USERNAME -->
+		 <div class="form-group" ng-class="{ 'has-error has-feedback' : userForm.username.$invalid && (userForm.username.$dirty || submitted)} ">
+		 <label>Username</label>
+		 <input type="text" name="username" class="form-control" ng-model="user.username"   placeholder="Your Username" ng-minlength="3" ng-maxlength="8" ng-required="true">
+		 <span ng-show="userForm.username.$invalid && (userForm.username.$dirty || submitted)" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+		 <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || submitted)" class="help-block">You username is required.</p>
+		 <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
+		 <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p>
+		 </div>
+		 
+ <!-- Gander -->		 
+		<div class="form-group" ng-class="{ 'has-error has-feedback' : userForm.gander.$invalid && (userForm.gander.$dirty || submitted)} ">
+			<div class="radio-inline">
+			<label>
+				<input type="radio" name="gander" ng-model="user.gander" ng-required="!gander" value="M" > Male
+			</label>
+			</div>
+			<div class="radio-inline">
+			<label>
+				<input type="radio" name="gander" ng-model="user.gander" ng-required="!gander" value="F" > Female
+			</label>
+			</div>
+		<p ng-show="userForm.gander.$error.required && (userForm.gander.$dirty || submitted)" class="help-block">You name is required.</p>	
+		</div> 
+		
+ <!-- PASSWORD -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+		 <label>Password</label>
+		 <input type="Password" name="password" class="form-control" ng-model="user.password" placeholder="Your Password" ng-required="true">
+		 <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
+		 </div>
+ 
+ <!-- CONFIRM PASSWORD -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && (userForm.confirmPassword.$dirty || submitted)}">
+		 <label>Confirm Password</label>
+		 <input type="Password" name="confirmPassword" class="form-control" ng-model="user.confirmPassword" placeholder="Confirm Your Password" ng-compare="password" ng-required="true">
+		 <p ng-show="userForm.confirmPassword.$error.required && (userForm.confirmPassword.$dirty || submitted)" class="help-block">Your confirm password is required.</p>
+		 <p ng-show="userForm.confirmPassword.$error.compare && (userForm.confirmPassword.$dirty || submitted)" class="help-block">Confirm password doesnot match.</p>
+		 </div>
+ 
+ <!-- EMAIL -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
+		 <label>Email</label>
+		 <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Your Email Address" ng-required="true">
+		 <p ng-show="userForm.email.$error.required && (userForm.email.$dirty || submitted)" class="help-block">Email is required.</p>
+		 <p ng-show="userForm.email.$error.email && (userForm.email.$dirty || submitted)" class="help-block">Enter a valid email.</p>
+		 </div>
+ 
+ <!-- CONTACTNO -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.contactno.$invalid && (userForm.contactno.$dirty || submitted) }">
+		 <label>ContactNo</label>
+		 <input type="text" name="contactno" class="form-control" ng-model="user.contactno" placeholder="Your Contact No" ng-pattern="/^[789]\d{9}$/" maxlength="10" ng-required="true"> <!-- ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" -->
+		 <p ng-show="userForm.contactno.$error.required && (userForm.contactno.$dirty || submitted)" class="help-block">contact number required.</p>
+		 <p ng-show="userForm.contactno.$error.pattern && (userForm.contactno.$dirty || submitted)" class="help-block">Enter a valid contactno.</p>
+		 </div>
+ 
+ <!-- COUNTRY -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && (userForm.country.$dirty || submitted)}">
+		 <label>Country</label>
+		 <select name="country" class="form-control"
+		 ng-model="user.country"
+		 ng-options="country.CountryId as country.Name for country in countryList"
+		 ng-required="true">
+		 <option value=''>Select</option>
+		 </select>
+		 <p ng-show="userForm.country.$error.required && (userForm.country.$dirty || submitted)" class="help-block">Select country.</p>
+		 </div>
+ 
+ <!-- CITY -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && (userForm.city.$dirty || submitted)}">
+		 <label>City</label>
+		 <select name="city" class="form-control"
+		 ng-model="user.city"
+		 ng-options="city.CityId as city.Name for city in cityList"
+		 ng-required="true">
+		 <option value=''>Select</option>
+		 </select>
+		 <p ng-show="userForm.city.$error.required && (userForm.city.$dirty || submitted)" class="help-block">Select city.</p>
+		 </div>
+ 
+ <!-- TERMS & CONDITIONS -->
+		 <div class="form-group" ng-class="{ 'has-error' : userForm.terms.$invalid && (userForm.terms.$dirty || submitted)}">
+		 <label>Accept Terms & Conditions</label>
+		 <input type="checkbox" value="" name="terms" ng-model="user.terms" ng-required="true" />
+		 <p ng-show="userForm.terms.$error.required && (userForm.terms.$dirty || submitted)" class="help-block">Accept terms & conditions.</p>
+		 </div>
+ 
+ <!-- ng-disabled FOR ENABLING AND DISABLING SUBMIT BUTTON -->
+ <!--<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Register</button>-->
+ 
+		<button type="submit" ng-click="submitForm()" class="btn btn-primary">Register</button>
+ </form>
+
+ </div>
+ 
+</div>

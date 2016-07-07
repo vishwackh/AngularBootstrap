@@ -1,0 +1,51 @@
+<div class="row">
+<div class="col-xs-12 col-md-12">
+
+<div class="clearfix">&nbsp;</div>
+<h4>Justified Tabs </h4>
+  <uib-tabset active="activeJustified" justified="true" active="active">
+
+    <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disabled">
+      {{tab.content}}
+    </uib-tab>
+
+  </uib-tabset>
+
+  <div class="clearfix">&nbsp;</div>
+  
+   <h4>Tabbed pills with CSS classes</h4>
+   
+  <uib-tabset type="pills">
+    <uib-tab heading="Default Size">
+	Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo perferendis quos provident delectus ducimus necessitatibus reiciendis optio tempora unde earum doloremque commodi laudantium ad nulla vel odio?
+	</uib-tab>
+	
+    <uib-tab heading="Small Button" classes="btn-sm">
+	Tenetur quod quidem in voluptatem corporis dolorum dicta sit pariatur porro quaerat autem ipsam odit quam beatae tempora quibusdam illum! Modi velit odio nam nulla unde amet odit pariatur at!
+	</uib-tab>
+  </uib-tabset>
+  
+  <div class="clearfix">&nbsp;</div>
+  <h4>Tabs using nested forms:</h4>
+  
+  <form name="outerForm" class="tab-form-demo">
+    <uib-tabset active="activeForm">
+      <uib-tab index="0" heading="Form Tab">
+        <ng-form name="nestedForm">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" required ng-model="model.name"/>
+          </div>
+        </ng-form>
+      </uib-tab>
+      <uib-tab index="1" heading="Tab One">
+        Some Tab Content
+      </uib-tab>
+      <uib-tab index="2" heading="Tab Two">
+        More Tab Content
+      </uib-tab>
+    </uib-tabset>
+  </form>
+  
+</div>
+</div>

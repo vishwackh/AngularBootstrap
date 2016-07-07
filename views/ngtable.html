@@ -1,0 +1,84 @@
+<div class="row">
+<h4>NG Tabels <small>Simple demo</small></h4>
+<hr/>
+<div class="col-md-12"> 
+<div class="table-responsive">
+    <table ng-table="tableParams"  class="table table-bordered" show-filter="true" >
+        <thead>
+            <tr>
+                <th rowspan="2" >ID</th>
+                <th colspan="2">primary</th>
+                <th colspan="2">secondary</th>
+            </tr>
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>NAME</th>
+                <th>AGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in $data">
+                <td data-title="'id'" sortable="'id'" filter="{ 'id': 'number' }">
+                    {{person.id}}
+                </td>
+                <td data-title="'Name'">
+                    {{person.primary.name}}
+                </td>
+                <td data-title="'Age'">
+                    {{person.primary.age}}
+                </td>
+                <td data-title="'Name'">
+                    {{person.secondary.name}}
+                </td>
+                <td data-title="'Age'">
+                    {{person.secondary.age}}
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+	</div>
+<div class="clearfix">&nbsp;</div>	
+
+<h4>NG Tabels <small>Demo with Filter and Sorting</small></h4>
+<hr/>
+
+<div class="table-responsive">
+<table ng-table="usersTable" class="table table-striped" show-filter="true">
+   <tr ng-repeat="user in data">
+       <td data-title="'Id'" >
+           {{user.id}}
+       </td>
+       <td data-title="'First Name'" sortable="'first_name'" filter="{ 'first_name': 'text' }">
+           {{user.first_name}}
+       </td>
+       <td data-title="'Last Name'" sortable="'last_name'" filter="{ 'last_name': 'text' }">
+           {{user.last_name}}
+       </td>    
+       <td data-title="'e-mail'" sortable="'email'" filter="{ 'email': 'text' }">
+           {{user.email}}
+       </td>    
+       <td data-title="'Country'" sortable="'country'" filter="{ 'country': 'text' }">
+           {{user.country}}
+       </td>    
+       <td data-title="'IP'" sortable="'ip_address'" filter="{ 'ip_address': 'text' }">
+           {{user.ip_address}}
+       </td>    
+   </tr>
+</table>	
+</div>
+
+<div class="col-xs-12 col-md-12">
+<h4>Improve performance of ngRepeat over a huge dataset (angular.js)?	</h4>
+<div class="table-responsive">
+<table class="table">
+    <tr ng-repeat="d in dammydata | startFrom:currentPage*pageSize | limitTo:pageSize"><td>{{d}}</td></tr>
+</table>
+</div>
+  <button class="btn" ng-disabled="currentPage <= 0" ng-click="currentPage=currentPage-1"><<</button>
+  <button class="btn" ng-disabled="currentPage >= numberOfPages()" ng-click="currentPage=currentPage+1">>></button>
+  Page {{currentPage+1}} of {{numberOfPages()}} 
+</div>
+</div>
+</div>

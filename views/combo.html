@@ -1,0 +1,59 @@
+<div class="row">
+<div class="col-xs-12 col-md-6 card">
+
+<h4>ng-select - <small>simple ways </small></h4>
+
+<select  ng-options="c.name for c in country" class="form-control" ng-model="selcountry">
+<option value=''>Select Country</option>
+</select>
+
+<div class="clearfix">&nbsp;</div>
+{{selcountry | json}}
+
+<h4>ng-select - <small>group by </small></h4>
+<select ng-options="value.city group by value.country for value in optionsGroup" class="form-control" ng-model="selcou">
+<option value=''>Select City</option>
+</select>
+
+<div class="clearfix">&nbsp;</div>
+ {{selcou | json}}
+ 
+ 
+ <h4>ng-select - <small>Array of simple object </small></h4>
+<select ng-options="state for state in states" class="form-control" ng-model="selstate">
+<option value=''>Select State</option>
+</select>
+
+<div class="clearfix">&nbsp;</div>
+ {{selstate}}
+ 
+</div>
+
+<div class="col-xs-12 col-md-6 card">
+
+<h4>ng-select - <small>select country code </small></h4>
+<select ng-options="c.code as c.name for c in country "  class="form-control" ng-model="scountry">
+<option value=''>Select Country</option>
+</select>
+ 
+<div class="clearfix">&nbsp;</div> 
+{{scountry}}
+
+<h4>ng-select - <small>group by as a city name</small></h4>
+<select ng-options="value.city as value.city group by value.country for value in optionsGroup" class="form-control" ng-model="selcity">
+<option value=''>Select City</option>
+</select>
+
+<div class="clearfix">&nbsp;</div>
+ {{selcity}}
+ 
+<h4>ng-select - <small>Array of complex object </small></h4>
+<select ng-options="county.id as county.name group by county.continent for county in countries" class="form-control" ng-model="ccountry">
+<option value=''>Select Country</option>
+</select>
+
+<div class="clearfix">&nbsp;</div>
+ {{ccountry}}
+</div>
+
+</div>

@@ -1,0 +1,85 @@
+<div class="row">
+
+<div class="col-xs-12 col-md-12">
+<h4>UI Router - <small>Passing params to Route</small></h4>
+<pre>
+&lt;a ui-sref="partyDetail({ partyID: id, partyLocation: location })" &gt; See the Party &lt;/a&gt;
+
+    $stateProvider.state('partyDetail', {
+        url: '/party/:partyID/:partyLocation',
+        controller: function($scope, $stateParams) {
+            $scope.id = $stateParams.partyID;
+            $scope.location = $stateParams.partyLocation;   
+        }
+    });
+</pre>	
+</div>	
+<div class="col-xs-12 col-md-12">
+<h4>UI Router - <small>3 ways to Passing params</small></h4>
+<pre>
+      &lt;a ui-sref="new-qs({ portfolioId: 1 , name: 'arkesh' })">New (query string) &lt;/a&gt; 
+      &lt;a ui-sref="new-rp({ portfolioId: 2 , name: 'viswa' })">New (route parameter) &lt;/a&gt; 
+      &lt;a ui-sref="new-nonurl({ portfolioId: 3 , name: 'kiran' })">New (non url parameter) &lt;/a&gt;
+	  
+    state('new-qs', {
+      url: '/new?portfolioId?name',
+      templateUrl: 'new.html',
+      controller: function($scope, $stateParams) {
+         $scope.portfolioId = $stateParams.portfolioId;
+         $scope.name = $stateParams.name;
+
+      }
+    }).
+    state('new-rp', {
+      url: '/new/:portfolioId/:name',
+      templateUrl: 'new.html',
+      controller: function($scope, $stateParams) {
+         $scope.portfolioId = $stateParams.portfolioId;
+        $scope.name = $stateParams.name;
+      }
+    }).
+    state('new-nonurl', {
+      url: '/new',
+      params: {
+        portfolioId:'',
+         name: '',
+      },
+      templateUrl: 'new.html',
+      controller: function($scope, $stateParams) {
+         $scope.portfolioId = $stateParams.portfolioId;
+          $scope.name = $stateParams.name;
+      }
+    });
+</pre>
+</div>
+
+<div class="col-xs-12 col-md-12">
+<h4>UI Router - <small>Multiple Views</small></h4>
+<pre>
+		.state('carousel.carousel2', {
+            url: "/carousel2",            
+		views: {
+			
+			'': { 
+			     templateUrl: 'views/carousel2.html',
+				 controller: 'carouselCtrl2' 
+				 },
+			
+'columnOne@carousel.carousel2': {
+			template: 'Column One Here',
+			controller:'carouselCtrl2'
+			},
+			
+'columnTwo@carousel.carousel2': {
+			template: 'Column One Here',
+			controller:'carouselCtrl2'
+			}
+			
+			}			
+        })
+</pre>
+</div>
+
+
+
+</div>	
